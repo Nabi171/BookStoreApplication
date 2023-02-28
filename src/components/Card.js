@@ -3,16 +3,29 @@ import BookCard from './BookCard';
 import AddBook from './AddBook';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchBooks from './redux/Thunk/fetchBooks';
+import UpdateCart from './UpdateCart';
+import { setSelectedBookData } from './redux/actions';
 
 const Card = () => {
-    // const books = useSelector((state) => state.books);
+    const dispatch = useDispatch();
+    const [showCartComponent, setshowCartComponent] = useState(true);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setshowCartComponent(!showCartComponent);
+
+    };
+
+
+
+
     const [books, setbooks] = useState([]);
     useEffect(() => {
         fetch('http://localhost:9000/books')
             .then(res => res.json())
             .then(data => setbooks(data));
     }, []);
-    const dispatch = useDispatch();
+
     // useEffect(() => {
     //     dispatch(fetchBooks)
     // }, [dispatch]);
@@ -36,6 +49,7 @@ const Card = () => {
                                     <BookCard
                                         book={book}
                                         key={book.id}
+                                        handleClick={handleClick}
                                     />
                                 )
                             }
@@ -47,7 +61,18 @@ const Card = () => {
                     </div>
                     <div>
                         {/* addbook */}
-                        <AddBook></AddBook>
+                        {/* <AddBook></AddBook> */}
+                        {showCartComponent ? <AddBook /> :
+                            books.slice(0, 1).map(book =>
+                                <UpdateCart
+                                    book={book}
+                                    key={book.id}
+
+                                />
+                            )
+                        }
+                        {/* {showCartComponent ? <ComponentAddtoCart /> : <ComponentCartItem />} */}
+                        {/* <UpdateCart></UpdateCart> */}
                     </div>
                 </div>
             </main>

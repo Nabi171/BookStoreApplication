@@ -14,9 +14,9 @@ const AddBook = ({ addedNewbook }) => {
         const thumbnail = event.target.elements.thumbnail.value;
         const price = parseFloat(event.target.elements.price.value);
         const rating = parseInt(event.target.elements.rating.value);
-        newProduct = addedNewbook(name, author, thumbnail, price, rating);
+        addedNewbook(name, author, thumbnail, price, rating);
         alert('added book in server side');
-
+        window.location.reload();
 
 
     };

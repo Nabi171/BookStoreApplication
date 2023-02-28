@@ -1,10 +1,12 @@
-import { ADDBOOK, TOGGLE_CHECKBOX, LOADED } from "./actionTypes";
+import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, DELETE_BOOK } from "./actionTypes";
 
 
 
 
 const initialState = {
-    books: [],
+    books: [
+
+    ],
     id: 1,
 };
 // const nextTodoId = (books) => {
@@ -55,6 +57,8 @@ const reducer = (state = initialState, action) => {
         case LOADED:
             return action.payload;
 
+        case DELETE_BOOK:
+            return state.books.filter(book => book.id !== action.payload)
 
         default:
             return state;
