@@ -1,18 +1,40 @@
 import React from 'react';
+import { addbook } from './redux/actions';
+import { connect, useSelector } from 'react-redux';
 
-const AddBook = () => {
+const AddBook = ({ addbook }) => {
+    const products = useSelector((state) => state.books);
+    console.log(products)
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const name = event.target.elements.name.value;
+        const author = event.target.elements.author.value;
+        const thumbnail = event.target.elements.thumbnail.value;
+        const price = parseFloat(event.target.elements.price.value);
+        const rating = parseInt(event.target.elements.rating.value);
+        const newProduct = addbook(name, author, thumbnail, price, rating);
+
+
+        // console.log(newProduct);
+
+    };
     return (
         <div>
             <div className="p-4 overflow-hidden bg-white shadow-cardShadow rounded-md">
                 <h4 className="mb-8 text-xl font-bold text-center">Add New Book</h4>
-                <form className="book-form">
+                <form className="book-form"
+                    onSubmit={handleSubmit}
+                >
                     <div className="space-y-2">
                         <label for="name">Book Name</label>
-                        <input required className="text-input" type="text" id="input-Bookname" name="name" />
+                        <input
+                            name="name"
+                            required className="text-input" type="text" id="input-Bookname" />
                     </div>
 
                     <div className="space-y-2">
-                        <label for="category">Author</label>
+                        <label for="author">Author</label>
                         <input required className="text-input" type="text" id="input-Bookauthor" name="author" />
                     </div>
 
@@ -28,7 +50,7 @@ const AddBook = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label for="quantity">Rating</label>
+                            <label for="ratings">Rating</label>
                             <input required className="text-input" type="number" id="input-Bookrating" name="rating" min="1" max="5" />
                         </div>
                     </div>
@@ -45,4 +67,5 @@ const AddBook = () => {
     );
 };
 
-export default AddBook;
+// export default AddBook;
+export default connect(null, { addbook })(AddBook);

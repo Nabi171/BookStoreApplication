@@ -1,9 +1,9 @@
 import { ADDBOOK, TOGGLE_CHECKBOX } from "./actionTypes";
 
-export const addbook = (bookName, author, thumbnail, price, ratings) => {
+export const addbook = (name, author, thumbnail, price, rating) => {
     return {
         type: ADDBOOK,
-        payload: { bookName, author, thumbnail, price, ratings, checkbox: false }
+        payload: { name, author, thumbnail, price, rating, featured: false }
     };
 }
 
