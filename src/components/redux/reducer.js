@@ -1,4 +1,4 @@
-import { ADDBOOK, TOGGLE_CHECKBOX } from "./actionTypes";
+import { ADDBOOK, TOGGLE_CHECKBOX, LOADED } from "./actionTypes";
 
 
 
@@ -51,6 +51,9 @@ const reducer = (state = initialState, action) => {
                     return book;
                 })
             };
+
+        case LOADED:
+            return action.payload;
 
 
         default:

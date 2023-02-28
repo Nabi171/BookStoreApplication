@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BookCard from './BookCard';
 import AddBook from './AddBook';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import fetchBooks from './redux/Thunk/fetchBooks';
 
 const Card = () => {
-    const books = useSelector((state) => state.books);
+    // const books = useSelector((state) => state.books);
+    const [books, setbooks] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:9000/books')
+            .then(res => res.json())
+            .then(data => setbooks(data));
+    }, []);
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(fetchBooks)
+    // }, [dispatch]);
     return (
         <div>
             <main className="py-12 2xl:px-6">

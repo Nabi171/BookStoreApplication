@@ -1,4 +1,4 @@
-import { ADDBOOK, TOGGLE_CHECKBOX } from "./actionTypes";
+import { ADDBOOK, TOGGLE_CHECKBOX, LOADED } from "./actionTypes";
 
 export const addbook = (name, author, thumbnail, price, rating) => {
     return {
