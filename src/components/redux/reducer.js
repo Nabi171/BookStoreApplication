@@ -1,4 +1,4 @@
-import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, DELETE_BOOK } from "./actionTypes";
+import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, DELETE_BOOK, SEARCH_BOOK } from "./actionTypes";
 
 
 
@@ -8,6 +8,7 @@ const initialState = {
 
     ],
     id: 1,
+    query: '',
 };
 // const nextTodoId = (books) => {
 //     const maxId = books.reduce((maxId, book) => Math.max(book.id, maxId), -1);
@@ -59,6 +60,12 @@ const reducer = (state = initialState, action) => {
 
         case DELETE_BOOK:
             return state.books.filter(book => book.id !== action.payload)
+
+        case SEARCH_BOOK:
+            return {
+                ...state,
+                query: action.payload,
+            };
 
         default:
             return state;

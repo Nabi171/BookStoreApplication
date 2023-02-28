@@ -1,4 +1,4 @@
-import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, SET_SELECTED_BOOK_DATA, DELETE_BOOK } from "./actionTypes";
+import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, SET_SELECTED_BOOK_DATA, DELETE_BOOK, SEARCH_BOOK } from "./actionTypes";
 
 export const addbook = (name, author, thumbnail, price, rating) => {
     return {
@@ -34,3 +34,8 @@ export const deletebook = (id) => {
         payload: id,
     };
 }
+
+export const searchBooks = (query) => ({
+    type: SEARCH_BOOK,
+    payload: query,
+});
