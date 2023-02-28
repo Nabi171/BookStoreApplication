@@ -1,2 +1,2 @@
 export const ADDBOOK = "addBook";
-const TOGGLE_CHECKBOX = 'TOGGLE_CHECKBOX';
+export const TOGGLE_CHECKBOX = 'TOGGLE_CHECKBOX';
