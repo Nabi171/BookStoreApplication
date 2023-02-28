@@ -1,8 +1,9 @@
 import React from 'react';
 import { addbook } from './redux/actions';
 import { connect, useSelector } from 'react-redux';
+import addedNewbook from './redux/Thunk/addedNewbook';
 
-const AddBook = ({ addbook }) => {
+const AddBook = ({ addedNewbook }) => {
     const products = useSelector((state) => state.books);
     console.log(products)
     const handleSubmit = (event) => {
@@ -13,10 +14,10 @@ const AddBook = ({ addbook }) => {
         const thumbnail = event.target.elements.thumbnail.value;
         const price = parseFloat(event.target.elements.price.value);
         const rating = parseInt(event.target.elements.rating.value);
-        const newProduct = addbook(name, author, thumbnail, price, rating);
+        newProduct = addedNewbook(name, author, thumbnail, price, rating);
+        alert('added book in server side');
 
 
-        // console.log(newProduct);
 
     };
     return (
@@ -68,4 +69,4 @@ const AddBook = ({ addbook }) => {
 };
 
 // export default AddBook;
-export default connect(null, { addbook })(AddBook);
+export default connect(null, { addedNewbook })(AddBook);

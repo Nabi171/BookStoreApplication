@@ -26,15 +26,6 @@
       "rating": 4,
       "featured": true,
       "id": 4
-    },
-    {
-      "name": "Nabi",
-      "author": "a",
-      "thumbnail": "https://m.media-amazon.com/images/P/B07DZ86WP7.01._SCLZZZZZZZ_SX500_.jpg",
-      "price": 1,
-      "rating": 1,
-      "featured": false,
-      "id": 5
     }
   ]
 }
