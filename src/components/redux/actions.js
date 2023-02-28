@@ -15,3 +15,10 @@ export const toggleCheckbox = (id) => {
         }
     };
 }
+
+export const loaded = (books) => {
+    return {
+        type: LOADED,
+        payload: books,
+    }
+}
