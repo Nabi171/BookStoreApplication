@@ -63,11 +63,14 @@ const Card = () => {
                                             book={book}
                                             key={book.id}
                                             handleClick={handleClick}
-                                        /> : <BookCard
-                                            book={book}
-                                            key={book.id}
-                                            handleClick={handleClick}
-                                        />
+                                        /> : <>
+                                            {(book.featured == true) && <BookCard
+                                                book={book}
+                                                key={book.id}
+                                                handleClick={handleClick}
+                                            />}
+
+                                        </>
 
                                 )
                             }
