@@ -7,6 +7,7 @@ import UpdateCart from './UpdateCart';
 import { setSelectedBookData } from './redux/actions';
 
 const Card = () => {
+    // const { query } = useSelector((state) => state.search);
     const dispatch = useDispatch();
     const [showCartComponent, setshowCartComponent] = useState(true);
 

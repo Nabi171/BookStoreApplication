@@ -1,7 +1,8 @@
 import React from 'react';
-import { addbook } from './redux/actions';
-import { connect, useSelector } from 'react-redux';
+import { addbook, toggleCheckbox } from './redux/actions';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import addedNewbook from './redux/Thunk/addedNewbook';
+import { updateExpression } from '@babel/types';
 
 const AddBook = ({ addedNewbook }) => {
     const products = useSelector((state) => state.books);
@@ -20,6 +21,11 @@ const AddBook = ({ addedNewbook }) => {
 
 
     };
+    const dispatch = useDispatch();
+    const handleFeature = () => {
+        dispatch(updateExpression());
+    }
+
     return (
         <div>
             <div className="p-4 overflow-hidden bg-white shadow-cardShadow rounded-md">
@@ -57,7 +63,9 @@ const AddBook = ({ addedNewbook }) => {
                     </div>
 
                     <div className="flex items-center">
-                        <input id="input-Bookfeatured" type="checkbox" name="featured" className="w-4 h-4" />
+                        <input id="input-Bookfeatured" type="checkbox" name="featured" className="w-4 h-4"
+                            onClick={handleFeature}
+                        />
                         <label for="featured" className="ml-2 text-sm"> This is a featured book </label>
                     </div>
 

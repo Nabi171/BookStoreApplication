@@ -4,9 +4,7 @@ import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, DELETE_BOOK, SEARCH_BOOK } from "./ac
 
 
 const initialState = {
-    books: [
-
-    ],
+    books: [],
     id: 1,
     query: '',
 };
@@ -44,7 +42,7 @@ const reducer = (state = initialState, action) => {
         case TOGGLE_CHECKBOX:
             return {
                 ...state,
-                rows: state.books.map(book => {
+                books: state.books.map(book => {
                     if (book.id === action.payload.id) {
                         return {
                             ...book,

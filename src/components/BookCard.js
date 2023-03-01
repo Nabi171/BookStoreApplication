@@ -1,10 +1,11 @@
 import React from 'react';
 import Star from './Star';
 import { deletebook } from './redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import deletbookId from './redux/Thunk/deletbookId';
 
 const BookCard = ({ book, handleClick }) => {
+    // const { query } = useSelector((state) => state.search);
     const { name, author, thumbnail, price, rating, id } = book;
     const dispatch = useDispatch();
     // const id = book.id;

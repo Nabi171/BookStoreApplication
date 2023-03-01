@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { searchBooksAsync } from './redux/Thunk/searchBooksAsync';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const [query, setQuery] = useState('');
+
+    const handleSearch = () => {
+        dispatch(searchBooksAsync(query));
+    };
     return (
         <div>
             <nav className="py-4 2xl:px-6">
@@ -13,7 +21,9 @@ const Header = () => {
                         <li className="cursor-pointer">My Collection</li>
                     </ul>
 
-                    <form className="flex items-center">
+                    <form className="flex items-center"
+                        onClick={handleSearch}
+                    >
                         <div className="group relative rounded-md bg-white">
                             <svg width="20" height="20" fill="currentColor"
                                 className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-primary">
@@ -21,7 +31,10 @@ const Header = () => {
                                     d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z">
                                 </path>
                             </svg>
-                            <input type="text" placeholder="Filter books..." className="search" id="lws-searchBook" />
+                            <input type="text" placeholder="Filter books..." className="search" id="lws-searchBook"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
                         </div>
                     </form>
                 </div>

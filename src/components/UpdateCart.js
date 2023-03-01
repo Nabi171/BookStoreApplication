@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { SET_SELECTED_BOOK_DATA } from './redux/actionTypes';
+import { useDispatch } from 'react-redux';
+import UpdateBooks from './redux/Thunk/UpdateBooks';
 
 const UpdateCart = ({ book }) => {
+    const { id, name, author, thumbnail, price, rating } = book;
     const [inputValue1, setInputValue] = useState(book.name);
     const [inputValue2, setInputValue2] = useState(book.author);
     const [inputValue3, setInputValue3] = useState(book.thumbnail);
@@ -33,6 +36,12 @@ const UpdateCart = ({ book }) => {
         setInputValue5(newValue);
         // onChange(newValue);
     };
+    const dispatch = useDispatch();
+    const updateTheBook = () => {
+        dispatch(UpdateBooks(id, inputValue1, inputValue2, inputValue3, inputValue4, inputValue5));
+        alert('update')
+    }
+
     // const selectedBookData = useSelector((state) => state[SET_SELECTED_BOOK_DATA])
     return (
         <div>
@@ -91,7 +100,9 @@ const UpdateCart = ({ book }) => {
                         <label for="featured" className="ml-2 text-sm"> This is a featured book </label>
                     </div>
 
-                    <button type="submit" className="submit" id="submit">Update Book</button>
+                    <button
+                        onClick={updateTheBook}
+                        type="submit" className="submit" id="submit">Update Book</button>
                 </form>
             </div>
         </div>
