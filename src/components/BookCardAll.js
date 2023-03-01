@@ -6,7 +6,7 @@ import deletbookId from './redux/Thunk/deletbookId';
 
 const BookCardAll = ({ book, handleClick }) => {
     // const { query } = useSelector((state) => state.search);
-    const { name, author, thumbnail, price, rating, id } = book;
+    const { name, author, thumbnail, price, rating, id, featured } = book;
     const dispatch = useDispatch();
     // const id = book.id;
     const handleDelete = () => {
@@ -23,7 +23,7 @@ const BookCardAll = ({ book, handleClick }) => {
                     src={thumbnail} alt="book" />
                 <div className="flex-1 h-full pr-2 pt-2 flex flex-col">
                     <div className="flex items-center justify-between">
-                        <span className="badge-success lws-Badge">featured</span>
+                        {featured && <span className="badge-success lws-Badge">featured</span>}
                         <div className="text-gray-500 space-x-2">
                             <button className="lws-edit"
                                 // edite
