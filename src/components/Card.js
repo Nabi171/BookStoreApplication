@@ -21,7 +21,13 @@ const Card = () => {
     const handleClick2 = (e) => {
         e.preventDefault();
         setshowCartComponent2(!showCartComponent2);
-        alert('click')
+
+
+    };
+    const handleClick3 = (e) => {
+        e.preventDefault();
+
+        window.location.reload();
 
     };
 
@@ -47,7 +53,9 @@ const Card = () => {
                             <h4 className="mt-2 text-xl font-bold">Book List</h4>
 
                             <div className="flex items-center space-x-4">
-                                <button className="filter-btn active-filter" id="lws-filterAll">All</button>
+                                <button className="filter-btn active-filter" id="lws-filterAll"
+                                    onClick={handleClick3}
+                                >All</button>
                                 <button className="filter-btn" id="lws-filterFeatured"
                                     onClick={handleClick2}
                                 >Featured</button>
