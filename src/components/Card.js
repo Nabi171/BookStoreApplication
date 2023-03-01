@@ -5,15 +5,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import fetchBooks from './redux/Thunk/fetchBooks';
 import UpdateCart from './UpdateCart';
 import { setSelectedBookData } from './redux/actions';
+import BookCardAll from './BookCardAll';
 
 const Card = () => {
     // const { query } = useSelector((state) => state.search);
     const dispatch = useDispatch();
     const [showCartComponent, setshowCartComponent] = useState(true);
+    const [showCartComponent2, setshowCartComponent2] = useState(true);
 
     const handleClick = (e) => {
         e.preventDefault();
         setshowCartComponent(!showCartComponent);
+
+    };
+    const handleClick2 = (e) => {
+        e.preventDefault();
+        setshowCartComponent2(!showCartComponent2);
+        alert('click')
 
     };
 
@@ -40,18 +48,27 @@ const Card = () => {
 
                             <div className="flex items-center space-x-4">
                                 <button className="filter-btn active-filter" id="lws-filterAll">All</button>
-                                <button className="filter-btn" id="lws-filterFeatured">Featured</button>
+                                <button className="filter-btn" id="lws-filterFeatured"
+                                    onClick={handleClick2}
+                                >Featured</button>
                             </div>
                         </div>
                         <div className="lws-bookContainer">
 
                             {
                                 books.map(book =>
-                                    <BookCard
-                                        book={book}
-                                        key={book.id}
-                                        handleClick={handleClick}
-                                    />
+
+                                    showCartComponent2
+                                        ? <BookCardAll
+                                            book={book}
+                                            key={book.id}
+                                            handleClick={handleClick}
+                                        /> : <BookCard
+                                            book={book}
+                                            key={book.id}
+                                            handleClick={handleClick}
+                                        />
+
                                 )
                             }
                             {/* <!-- Card 1 --> */}

@@ -1,20 +1,20 @@
 import { toggleCheckbox } from "../actions";
 
-const updateToggle = (id) => {
+const updateToggle = (id, feaured) => {
     return async (dispatch) => {
         const response = await fetch(`http://localhost:9000/books/${id}`, {
             method: "PATCH",
             body: JSON.stringify({
 
-                feaured: false,
+                feaured: !feaured,
             }),
             headers: {
                 "content-type": "application/json;charset=UTF-8"
             }
         });
-        const todo = await response.json();
+        const book = await response.json();
 
-        dispatch(toggleCheckbox(todo.id));
+        dispatch(toggleCheckbox(book.id));
     };
 }
 

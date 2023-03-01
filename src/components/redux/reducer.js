@@ -34,24 +34,37 @@ const reducer = (state = initialState, action) => {
                         price: action.payload.price,
                         rating: action.payload.rating,
                         id: id,
+                        featured: false,
 
 
                     }
                 ]
             };
         case TOGGLE_CHECKBOX:
-            return {
-                ...state,
-                books: state.books.map(book => {
-                    if (book.id === action.payload.id) {
-                        return {
-                            ...book,
-                            featured: !book.featured
-                        };
-                    }
+            // return {
+            //     ...state,
+            //     books: state.books.map(book => {
+            //         if (book.id === action.payload.id) {
+            //             return {
+            //                 ...book,
+            //                 featured: !book.featured
+            //             };
+            //         }
+            //         return book;
+            //     })
+            // };
+
+            return state.books.map((book) => {
+                if (book.id !== action.payload) {
                     return book;
-                })
-            };
+                }
+
+                return {
+                    ...book,
+                    featured: !book.true,
+                };
+            });
+
 
         case LOADED:
             return action.payload;

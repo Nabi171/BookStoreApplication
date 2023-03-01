@@ -3,16 +3,15 @@ import { ADDBOOK, TOGGLE_CHECKBOX, LOADED, SET_SELECTED_BOOK_DATA, DELETE_BOOK, 
 export const addbook = (name, author, thumbnail, price, rating) => {
     return {
         type: ADDBOOK,
-        payload: { name, author, thumbnail, price, rating, featured: false }
+        payload: { name, author, thumbnail, price, rating }
     };
 }
 
 export const toggleCheckbox = (id) => {
     return {
         type: TOGGLE_CHECKBOX,
-        payload: {
-            id
-        }
+        payload: id,
+
     };
 }
 

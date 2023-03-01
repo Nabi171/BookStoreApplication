@@ -2,11 +2,17 @@ import React from 'react';
 import { addbook, toggleCheckbox } from './redux/actions';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import addedNewbook from './redux/Thunk/addedNewbook';
-import { updateExpression } from '@babel/types';
+// import { updateExpression } from '@babel/types';
+import updateToggle from './redux/Thunk/updateToggle';
 
 const AddBook = ({ addedNewbook }) => {
-    const products = useSelector((state) => state.books);
-    console.log(products)
+    // const id = useSelector()
+    const books = useSelector((state) => state.books);
+    // books.map(book => {
+    //     const id;
+    //     return id = book.id
+    // })
+    // console.log(products)
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -23,7 +29,7 @@ const AddBook = ({ addedNewbook }) => {
     };
     const dispatch = useDispatch();
     const handleFeature = () => {
-        dispatch(updateExpression());
+        dispatch(toggleCheckbox());
     }
 
     return (
