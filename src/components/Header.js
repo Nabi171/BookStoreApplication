@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { searchBooksAsync } from './redux/Thunk/searchBooksAsync';
 import { useDispatch } from 'react-redux';
-
+// import {logo} from "../images/logo.svg"
 const Header = () => {
     const dispatch = useDispatch();
     const [query, setQuery] = useState('');
@@ -13,7 +13,7 @@ const Header = () => {
         <div>
             <nav className="py-4 2xl:px-6">
                 <div className="container flex items-center justify-between">
-                    <img src="./images/logo.svg" width="150px" className="object-contain" />
+                    <img src="../images/logo.svg" width="150px" className="object-contain" />
 
                     <ul className="hidden md:flex items-center space-x-6">
                         <li className="font-semibold cursor-pointer">Book Store</li>

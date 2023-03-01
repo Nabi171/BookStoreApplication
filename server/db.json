@@ -1,10 +1,10 @@
 {
   "books": [
     {
-      "name": "The way to jannah",
+      "name": "The way to jannat",
       "author": "Qari Abdul Latif",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOaqY1s-NwqXTHluoOJict2SHUB2TP6cH-qQ&usqp=CAU",
-      "price": "20",
+      "price": "11",
       "rating": "4",
       "featured": false,
       "id": 1
@@ -26,6 +26,15 @@
       "rating": 4,
       "featured": true,
       "id": 4
+    },
+    {
+      "name": "Nabi",
+      "author": "a",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOaqY1s-NwqXTHluoOJict2SHUB2TP6cH-qQ&usqp=CAU",
+      "price": 12,
+      "rating": 1,
+      "featured": false,
+      "id": 5
     }
   ]
 }
